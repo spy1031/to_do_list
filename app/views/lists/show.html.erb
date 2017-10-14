@@ -1,0 +1,17 @@
+<table class="table ">
+  <thead>
+    <tr >
+      <td>Task</td>
+      <td>Due date</td>
+      <td>Note</td>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @list.title %></td>
+    <td><%= @list.due_date %></td>
+    <td><%= @list.note %></td>
+  </tbody>
+</table>
+
+<%= link_to 'Back', lists_path,role: 'button' ,class: 'btn btn-link'%>
+

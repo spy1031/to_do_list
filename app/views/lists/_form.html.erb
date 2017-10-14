@@ -1,11 +1,26 @@
-<ul>
- <% @lists.each do |photo| %>
-   <li>
-     <%= list.title %>
-     <%= list.date %>
-     <%= link_to 'Show', list_path(list) %>
-     <%= link_to 'Edit', edit_list_path(list) %>
-     <%= link_to 'Destroy', list_path(list), method: :delete, data:{ confirm: "Are you sure?" } %>
-   </li>
- <% end %>
-</ul>
+<% if @list.errors.present? %>
+  <ul>
+    <% @list.errors.each do |error, message| %>
+      <li> <%= "#{error.capitalize} #{message}" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="form container form-inline">
+  <%= form_for @list do |f| %>
+    <div class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title ,class: 'form-control'%>
+    </div>
+    <div class="form-group">
+    <%= f.label :due_date, "Date" %>
+    <%= f.date_field :due_date, class: 'date form-control'%>
+    </div>
+    <div class="form-group ">
+    <%= f.label :note, "Note" %>
+    <%= f.text_area :note ,class: 'form-control'%>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>

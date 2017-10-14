@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require moment
+//= require bootstrap-datetimepicker
+//= require bootstrap_datetimepicker/dates
+$(document).on("click","[data-behaviour~=datepicker]",function(){
+    $(this).datetimepicker();
+  });
